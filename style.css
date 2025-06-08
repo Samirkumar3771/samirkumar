@@ -1,0 +1,278 @@
+Reset and basic setup
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  line-height: 1.6;
+}
+
+Navbar
+nav {
+  background: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f1f5f9;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  text-align: center;
+  background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
+  animation: fadeIn 2s ease-in;
+}
+
+.hero .name {
+  color: #facc15;
+}
+
+.hero .tagline {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  animation: slideUp 1.5s ease-out;
+}
+
+.btn {
+  margin-top: 2rem;
+  background: #facc15;
+  color: #000;
+  padding: 0.4rem 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Sections */
+section {
+  padding: 4rem 3rem;
+}
+
+.about, .skills, .projects, .contact {
+  background: #1e293b;
+  margin-top: 2rem;
+  border-radius: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #38bdf8;
+  margin-bottom: 1.5rem;
+}
+
+/* Skills */
+.skills ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skills li {
+  background: #334155;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #334155;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Contact */
+.contact p, .contact a {
+  text-align: center;
+  color: #f1f5f9;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background: #0f172a;
+  text-align: center;
+  padding: 1rem;
+  color: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: #1e293b;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 100%;
+    display: none;
+  }
+}
+
+/* Profile Picture Styling */
+.profile-pic {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#topBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 18px;
+  padding: 10px;
+}
+
+body.light-mode {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-mode nav {
+  background: #e2e8f0;
+}
+
+body.light-mode .logo {
+  color: #0ea5e9;
+}
+
+body.light-mode .nav-links a {
+  color: #1e293b;
+}
+
+body.light-mode .nav-links a:hover {
+  color: #0ea5e9;
+}
+
+body.light-mode .hero {
+  background: linear-gradient(135deg, #93c5fd, #bae6fd);
+}
+
+body.light-mode .hero .name {
+  color: #d97706;
+}
+
+body.light-mode .btn {
+  background: #0ea5e9;
+  color: #fff;
+}
+
+body.light-mode .about,
+body.light-mode .skills,
+body.light-mode .projects,
+body.light-mode .contact {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+body.light-mode .skills li,
+body.light-mode .project-card {
+  background: #cbd5e1;
+}
+
+body.light-mode footer {
+  background: #cbd5e1;
+  color: #1e293b;
+}
+
+/* Toggle Button Style */
+#toggle-theme {
+  background: transparent;
+  border: 1px solid #94a3b8;
+  color: #f1f5f9;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.light-mode #toggle-theme {
+  color: #1e293b;
+  border-color: #1e293b;
+}
+
+#toggle-theme:hover {
+  background: #38bdf8;
+  color: #000;
+}
+
+/* Profile Pic Light Mode */
+body.light-mode .profile-pic {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+

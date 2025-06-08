@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="toggle-theme">🌙 Dark Mode</button></li>
+
+        
+      </ul>
+      <div class="profile-pic">
+        <img src="profile.jpg" alt="Samir's Profile Photo" />
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Hi, I'm <span class="name">Samir</span></h1>
+    <p class="tagline"><span id="typed"></span></p>
+    <a href="#projects" class="btn">See My Work</a>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I am a passionate web developer with a love for creating beautiful and functional websites. I specialize in front-end development, UI/UX design, and responsive web applications.</p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Matri-A healthcare  Website</h3>
+        <p>Matri-A Healthcare is a comprehensive platform dedicated to providing accessible and personalized healthcare solutions. The website is designed to offer users a seamless experience in managing their health needs, from booking appointments to accessing medical resources.</p>
+        <a href="Matri.html" class="btn">View</a>
+      </div>
+      <div class="project-card">
+        <h3>Water level indicator</h3>
+        <p>A responsive online shop built with HTML, CSS, and JS.</p>
+        <a href="" class="btn">View</a>
+      </div>
+      <div class="project-card">
+        <h3>Weather App</h3>
+        <p>A real-time weather forecast app using OpenWeatherMap API.</p>
+        <a href="#" class="btn">View</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:samir@example.com">samirkumar3771@gmail.com</a></p>
+    <p>
+    <a href="https://github.com/Samirkumar3771" target="_blank">GitHub</a> |
+    <a href="https://www.linkedin.com/in/samir-kumar-2b241b24b/" target="_blank">LinkedIn</a>
+  </p>
+    <a href="samir resume.pdf" download class="btn">Download Resume</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Samir. All rights reserved.</p>
+  </footer>
+
+  <script>
+    
+    var typed = new Typed('#typed', {
+      strings: ["Web Developer", "UI/UX Designer", "Problem Solver","Quick Thinker"],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
+
+
+  </script>
+<button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
+
+ <script>
+const btn = document.getElementById("topBtn");
+window.onscroll = () => btn.style.display = window.scrollY > 300 ? "block" : "none";
+function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+</script>
+
+
+<script>
+  const toggleBtn = document.getElementById('toggle-theme');
+
+  window.onload = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      toggleBtn.textContent = '🌙 Dark Mode';
+    }
+  };     
+
+  toggleBtn.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light-mode');
+    toggleBtn.textContent = isLight ? '🌙 Dark Mode' : '☀️ Light Mode';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
+
+
+
+</body>
+</html>

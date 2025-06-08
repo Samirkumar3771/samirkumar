@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Details | Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #b1c3e2;
+      color: #333;
+      padding: 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      background-color: #1e3a8a;
+      color: rgb(233, 226, 226);
+      padding: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #a5d8ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .project-container {
+      max-width: 900px;
+      margin: auto;
+      background: #e1d3d3;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-header h2 {
+      font-size: 1.8rem;
+      color: #1e3a8a;
+    }
+
+    .project-date {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .project-description,
+    .project-tech,
+    .project-images,
+    .project-links {
+      margin-top: 2rem;
+    }
+
+    .project-description h3,
+    .project-tech h3,
+    .project-images h3,
+    .project-links h3 {
+      color: #1e40af;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tech ul {
+      list-style-type: square;
+      padding-left: 1.2rem;
+      color: #374151;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: transform 0.3s;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.03);
+    }
+
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Project Details</h1>
+    <nav>
+      <a href="index.html">Home</a>
+
+    </nav>
+  </header>
+
+  <main class="project-container">
+    <section class="project-header">
+      <h2>Smart Health Tracker App</h2>
+      <p class="project-date">Completed: March 2024</p>
+    </section>
+
+    <section class="project-description">
+      <h3>Overview</h3>
+      <p>
+        A web-based health tracker that allows users to monitor fitness activities,
+        medical appointments, and track medicine intake using personalized reminders.
+      </p>
+    </section>
+
+    <section class="project-tech">
+      <h3>Technologies Used</h3>
+      <ul>
+        <li>HTML</li>
+        <li>CSS3 </li>
+        <li>JavaScript </li>
+        
+      </ul>
+    </section>
+
+    <section class="project-images">
+      <h3>Screenshots</h3>
+      <div class="image-gallery">
+        <img src="fbhome.jpg" alt="Home screen" />
+        <img src="fbdoctor.jpg" alt="Doctor Meeting" />
+        <img src="fbstore.jpg" alt="Online Store"/>
+        <img src="fbhealtth.jpg" alt="Health Report" />
+        <img src="fbfaq.jpg" alt="FAQ"/>
+        <img src="fblogin.jpg" alt="Login"/>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Samir Kumar. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
