@@ -6,25 +6,249 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #f1f5f9;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    body.light-mode header {
+      background: #e2e8f0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    .profile-pic img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid #38bdf8;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero .name {
+      color: #38bdf8;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+      transform: scale(1.05);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #38bdf8;
+      margin: 0.5rem auto;
+    }
+
+    /* Skills */
+    .skills .skill {
+      max-width: 500px;
+      margin: 1rem auto;
+      text-align: left;
+    }
+
+    .skills .skill p {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      background-color: #334155;
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #38bdf8;
+      border-radius: 5px;
+      transition: width 1s ease-in-out;
+    }
+
+    body.light-mode .progress-bar {
+      background-color: #cbd5e1;
+    }
+
+    body.light-mode .progress {
+      background-color: #0ea5e9;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      text-align: left;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
+
+    body.light-mode .project-card {
+      background: #e2e8f0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Contact */
+    .contact a {
+      color: #38bdf8;
+      font-weight: 500;
+      margin: 0 0.3rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #1e293b;
+      margin-top: 2rem;
+    }
+
+    body.light-mode footer {
+      background: #e2e8f0;
+    }
+
+    /* Scroll to Top */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      border: none;
+      outline: none;
+      background: #38bdf8;
+      color: #0f172a;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    #topBtn:hover {
+      background: #0ea5e9;
+    }
+  </style>
 </head>
 <body>
   <header>
+    <div class="logo">MyPortfolio</div>
     <nav>
-      <div class="logo">MyPortfolio</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><button id="toggle-theme">🌙 Dark Mode</button></li>
-
-        
+        <li><button id="toggle-theme" class="btn">☀️ Light Mode</button></li>
       </ul>
-      <div class="profile-pic">
-        <img src="profile.jpg" alt="Samir's Profile Photo" />
-      </div>
     </nav>
+    <div class="profile-pic">
+      <img src="profile.jpg" alt="Samir's Profile Photo" />
+    </div>
   </header>
 
   <section id="home" class="hero">
@@ -40,27 +264,25 @@
 
   <section id="skills" class="skills">
     <h2>Skills</h2>
-    <ul>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Node.js</li>
-    </ul>
+    <div class="skill"><p>HTML5 <span>90%</span></p><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
+    <div class="skill"><p>CSS3 <span>85%</span></p><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
+    <div class="skill"><p>JavaScript <span>80%</span></p><div class="progress-bar"><div class="progress" style="width: 80%;"></div></div></div>
+    <div class="skill"><p>React <span>75%</span></p><div class="progress-bar"><div class="progress" style="width: 75%;"></div></div></div>
+    <div class="skill"><p>Node.js <span>80%</span></p><div class="progress-bar"><div class="progress" style="width: 80%;"></div></div></div>
   </section>
 
   <section id="projects" class="projects">
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <h3>Matri-A healthcare  Website</h3>
-        <p>Matri-A Healthcare is a comprehensive platform dedicated to providing accessible and personalized healthcare solutions. The website is designed to offer users a seamless experience in managing their health needs, from booking appointments to accessing medical resources.</p>
+        <h3>Matri-A Healthcare Website</h3>
+        <p>Matri-A Healthcare is a comprehensive platform dedicated to providing accessible and personalized healthcare solutions. The website offers booking appointments, medical resources, and more.</p>
         <a href="Matri.html" class="btn">View</a>
       </div>
       <div class="project-card">
-        <h3>Water level indicator</h3>
-        <p>A responsive online shop built with HTML, CSS, and JS.</p>
-        <a href="" class="btn">View</a>
+        <h3>Water Level Indicator</h3>
+        <p>A practical IoT project with a responsive interface built using HTML, CSS, and JS.</p>
+        <a href="#" class="btn">View</a>
       </div>
       <div class="project-card">
         <h3>Weather App</h3>
@@ -72,11 +294,11 @@
 
   <section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:samir@example.com">samirkumar3771@gmail.com</a></p>
+    <p>Email: <a href="mailto:samirkumar3771@gmail.com">samirkumar3771@gmail.com</a></p>
     <p>
-    <a href="https://github.com/Samirkumar3771" target="_blank">GitHub</a> |
-    <a href="https://www.linkedin.com/in/samir-kumar-2b241b24b/" target="_blank">LinkedIn</a>
-  </p>
+      <a href="https://github.com/Samirkumar3771" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/samir-kumar-2b241b24b/" target="_blank">LinkedIn</a>
+    </p>
     <a href="samir resume.pdf" download class="btn">Download Resume</a>
   </section>
 
@@ -84,45 +306,39 @@
     <p>&copy; 2025 Samir. All rights reserved.</p>
   </footer>
 
+  <!-- Typed.js -->
   <script>
-    
     var typed = new Typed('#typed', {
       strings: ["Web Developer", "UI/UX Designer", "Problem Solver","Quick Thinker"],
       typeSpeed: 60,
       backSpeed: 40,
       loop: true
     });
-
-
   </script>
-<button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
 
- <script>
-const btn = document.getElementById("topBtn");
-window.onscroll = () => btn.style.display = window.scrollY > 300 ? "block" : "none";
-function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
-</script>
+  <!-- Scroll to Top -->
+  <button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
+  <script>
+    const btn = document.getElementById("topBtn");
+    window.onscroll = () => btn.style.display = window.scrollY > 300 ? "block" : "none";
+    function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+  </script>
 
-
-<script>
-  const toggleBtn = document.getElementById('toggle-theme');
-
-  window.onload = () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-mode');
-      toggleBtn.textContent = '🌙 Dark Mode';
-    }
-  };     
-
-  toggleBtn.addEventListener('click', () => {
-    const isLight = document.body.classList.toggle('light-mode');
-    toggleBtn.textContent = isLight ? '🌙 Dark Mode' : '☀️ Light Mode';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  });
-</script>
-
-
-
+  <!-- Theme Toggle -->
+  <script>
+    const toggleBtn = document.getElementById('toggle-theme');
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggleBtn.textContent = '🌙 Dark Mode';
+      }
+    };
+    toggleBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-mode');
+      toggleBtn.textContent = isLight ? '🌙 Dark Mode' : '☀️ Light Mode';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>
